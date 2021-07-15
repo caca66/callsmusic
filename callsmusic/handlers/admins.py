@@ -105,5 +105,5 @@ async def unmute(_, message: Message):
     ) if (
         result == 1
     ) else (
-        await message.reply_text('<b>❌ ليس في الدعوة </b>', False)
+        await message.reply_text('<b>👋🏻 انا غير مدعو في المحادثة الصوتية ⚠️ ... </b>', False)
     )
