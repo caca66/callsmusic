@@ -11,18 +11,17 @@ async def start(_, message: Message):
     await message.reply_text(
         f'<b> - مرحبا بك عزيزي 👋🏻 : {message.from_user.mention()}!</b>\n\n'
         
-'- بوت تشغيل الاغاني الصوتية داخل المجموعات, '
-        'عليك اضافه حساب المساعد مع البوت لتشغيل الاغاني بنجاح : @DarkeMusic .'
+'I am Calls Music bot, '
+        'I let you play music in group calls.'
+        '\n\nThe commands I currently support are:\n\n'
+        '/play - play the replied audio file or YouTube video\n'
+        '/pause - pause the audio stream\n'
+        '/resume - resume the audio stream\n'
+        '/skip - skip the current audio stream\n'
+        '/mute - mute the userbot\n'
+        '/unmute - unmute the userbot\n'
+        '/stop - clear the queue and remove the userbot from the call',
         
-        '\n\n- اوامر البوت ↙️ :\n\n'
-
-        '/play : قم بالرد على ملف صوتي او رابط اغنيه في اليوتيوب بهذا الامر لتشغيل الاغنيه في المكالمة\n'
-        '/pause : ايقاف مؤقت للاغنيه\n'
-        '/resume  : استئناف الاغنيه\n'
-        '/skip : تخطي الاغنيه التي يتم تشغيلها حالياً\n'
-        '/mute : كتم الاغنية في البوت\n'
-        '/unmute : الغاء كتم الاغنية من البوت\n'
-        '/stop  : ايقاف تشغيل جميع الاغاني',
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -30,7 +29,7 @@ async def start(_, message: Message):
                         '- قناة البوت ⏺️', url='https://t.me/F0FFE',
                     ),
                     InlineKeyboardButton(
-                        '- اضغط لاضافتي 💬', url='ttps://t.me/Music7iBot?startgroup=new',
+                        '- اضغط لاضافتي 💬', url='https://t.me/Music7iBot?startgroup=new',
                     ),
                 ],
             ],
