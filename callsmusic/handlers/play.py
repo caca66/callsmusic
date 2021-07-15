@@ -22,7 +22,7 @@ async def play(_, message: Message):
     audio = (
         message.reply_to_message.audio or message.reply_to_message.voice
     ) if message.reply_to_message else None
-    response = await message.reply_text('<b>🔄 جاري التشغيل ...</b>', False)
+    response = await message.reply_text('<b>🔄 انتظر قليلاً جاري التشغيل  ...</b>', False)
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
@@ -83,8 +83,8 @@ async def play(_, message: Message):
     if chat_id in callsmusic.active_chats:
         position = await queues.put(chat_id, file=file)
         await response.edit_text(
-            f'<b>#️⃣ تم اضافتها الى القائمة  {position}</b>...',
+            f'<b>👋🏻- سيتم تشغيل اغنيتك بعد : {position} اغنية 🎶</b>...',
         )
     else:
         await callsmusic.set_stream(chat_id, file)
-        await response.edit_text('<b>▶️ تم تشغيل الاغنية ...</b>')
+        await response.edit_text('<b>✅ تم تشغيل الاغنية ...</b>')

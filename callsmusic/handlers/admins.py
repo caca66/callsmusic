@@ -17,11 +17,11 @@ from ..helpers.filters import other_filters
 @authorized_users_only
 async def pause(_, message: Message):
     (
-        await message.reply_text('<b>⏸ Paused</b>', False)
+        await message.reply_text('<b>⏸ متوقف ... </b>', False)
     ) if (
         callsmusic.pause(get_chat_id(message.chat))
     ) else (
-        await message.reply_text('<b>❌ Nothing is playing</b>', False)
+        await message.reply_text('<b>👋🏻لايوجد شيئ تم تشغيلة </b>', False)
     )
 
 
@@ -30,11 +30,11 @@ async def pause(_, message: Message):
 @authorized_users_only
 async def resume(_, message: Message):
     (
-        await message.reply_text('<b>▶️ Resumed</b>', False)
+        await message.reply_text('<b>▶️ استئناف ... </b>', False)
     ) if (
         callsmusic.resume(get_chat_id(message.chat))
     ) else (
-        await message.reply_text('<b>❌ Nothing is paused</b>', False)
+        await message.reply_text('<b>⚠️ لم يتم ايقاف شيئ ... </b>', False)
     )
 
 
@@ -97,11 +97,11 @@ async def mute(_, message: Message):
 async def unmute(_, message: Message):
     result = callsmusic.unmute(get_chat_id(message.chat))
     (
-        await message.reply_text('<b>✅ فتح الكتم </b>', False)
+        await message.reply_text('<b>✅ تم فتح الكتم </b>', False)
     ) if (
         result == 0
     ) else (
-        await message.reply_text('<b>👋🏻 غير مكتوم ... </b>', False)
+        await message.reply_text('<b>👋🏻 انا غير مكتوم  ... </b>', False)
     ) if (
         result == 1
     ) else (
