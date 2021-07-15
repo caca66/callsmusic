@@ -44,14 +44,14 @@ async def resume(_, message: Message):
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.active_chats:
-        await message.reply_text('<b>❌ Nothing is playing</b>', False)
+        await message.reply_text('<b>لا توجد اغنية لايقافها ..  ⚠️</b>', False)
     else:
         try:
             queues.clear(chat_id)
         except QueueEmpty:
             pass
         await callsmusic.stop(chat_id)
-        await message.reply_text('<b>⏹ Stopped streaming</b>', False)
+        await message.reply_text('<b>⏹ تم ايقاف البوت  ... </b>', False)
 
 
 @Client.on_message(command('skip') & other_filters)
@@ -60,7 +60,7 @@ async def stop(_, message: Message):
 async def skip(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.active_chats:
-        await message.reply_text('<b>❌ Nothing is playing</b>', False)
+        await message.reply_text('<b>لا توجد اغنية لايقافها ..  ⚠️</b>', False)
     else:
         queues.task_done(chat_id)
         if queues.is_empty(chat_id):
@@ -70,7 +70,7 @@ async def skip(_, message: Message):
                 chat_id,
                 queues.get(chat_id)['file'],
             )
-        await message.reply_text('<b>✅ Skipped</b>', False)
+        await message.reply_text('<b>✅ تم ايقاف الاغنية  ...</b>', False)
 
 
 @Client.on_message(command('mute') & other_filters)
@@ -79,15 +79,15 @@ async def skip(_, message: Message):
 async def mute(_, message: Message):
     result = callsmusic.mute(get_chat_id(message.chat))
     (
-        await message.reply_text('<b>✅ Muted</b>', False)
+        await message.reply_text('<b>✅ تم كتم البوت ...</b>', False)
     ) if (
         result == 0
     ) else (
-        await message.reply_text('<b>❌ Already muted</b>', False)
+        await message.reply_text('<b>👋🏻 تم كتمة بلفعل ...</b>', False)
     ) if (
         result == 1
     ) else (
-        await message.reply_text('<b>❌ Not in call</b>', False)
+        await message.reply_text('<b>❌ ليس في الدعوة </b>', False)
     )
 
 
@@ -97,13 +97,13 @@ async def mute(_, message: Message):
 async def unmute(_, message: Message):
     result = callsmusic.unmute(get_chat_id(message.chat))
     (
-        await message.reply_text('<b>✅ Unmuted</b>', False)
+        await message.reply_text('<b>✅ فتح الكتم </b>', False)
     ) if (
         result == 0
     ) else (
-        await message.reply_text('<b>❌ Not muted</b>', False)
+        await message.reply_text('<b>👋🏻 غير مكتوم ... </b>', False)
     ) if (
         result == 1
     ) else (
-        await message.reply_text('<b>❌ Not in call</b>', False)
+        await message.reply_text('<b>❌ ليس في الدعوة </b>', False)
     )
