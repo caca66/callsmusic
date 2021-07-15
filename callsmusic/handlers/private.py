@@ -10,8 +10,8 @@ from ..helpers.filters import other_filters2
 async def start(_, message: Message):
     await message.reply_text(
         f'<b> - مرحبا بك عزيزي : {message.from_user.mention()}! 👋🏻</b>\n'     
-        '\n- بوت تشغيل الاغاني الصوتية داخل المجموعات :\n\n'
-        '\n- عليك اضافه حساب المساعد مع البوت معرف الحساب : @DarkeMusic .\n\n'
+        '\n- بوت تشغيل الاغاني الصوتية داخل المجموعات :\n'
+        '\n- عليك اضافه حساب المساعد مع البوت معرف الحساب : @DarkeMusic .\n'
         '\n<b> - اوامر البوت ↙️ : </b>\n\n'
         'تشغيل الاغاني في المحادثة الصوتية - /play\n'
         'ايقاف الاغنية مؤقت - /pause\n'
@@ -21,15 +21,15 @@ async def start(_, message: Message):
         'الغاء كتم الاغنية - /unmute\n'
         'ايقاف تشغيل جميع الاغاني  - /stop\n'
         '⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n'
-        '<b> - DEV USER : @VLVLVI .</b>',
+        '<b> - Channel Dark TeAm : @F0FFE .</b>',
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        '- مـطور البوت .', url='https://t.me/F0FFE',
+                        '⌯ مطور البوت .', url='https://t.me/vlvlvi',
                     ),
                     InlineKeyboardButton(
-                        '- آضغط لاضافتـي .', url='https://t.me/Music7iBot?startgroup=new',
+                        '⌯ آضغط لاضافتـي .', url='https://t.me/Music7iBot?startgroup=new',
                     ),
                 ],
             ],
